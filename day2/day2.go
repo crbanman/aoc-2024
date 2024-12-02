@@ -7,13 +7,6 @@ import (
 	"strings"
 )
 
-func absInt(number int) int {
-	if number > 0 {
-		return number
-	}
-	return -number
-}
-
 func GetSafeCount(input string, withDampener bool) int {
 	reader := strings.NewReader(input)
 	scanner := bufio.NewScanner(reader)
@@ -41,7 +34,6 @@ func validateReport(report []string, withDampener bool) bool {
 	}
 
 	prev := 0
-	dampenerUsed := false
 	for i, v := range report {
 		// Don't evaluate last number as it was evaluated on previous iteration
 		if i == len(report)-1 {
@@ -61,8 +53,7 @@ func validateReport(report []string, withDampener bool) bool {
 		}
 
 		if cur == next || cur-next > 3 || next-cur > 3 || prev != 0 && prev > cur && cur < next || prev != 0 && prev < cur && cur > next {
-			if withDampener && !dampenerUsed {
-				dampenerUsed = true
+			if withDampener {
 				if i > 0 {
 					withoutPrev, err := copySliceRemoveIndex(report, i-1)
 					if err != nil {
