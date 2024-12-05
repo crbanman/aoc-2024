@@ -8,6 +8,7 @@ import (
 
 	"github.com/crbanman/aoc-2024/day1"
 	"github.com/crbanman/aoc-2024/day2"
+	"github.com/crbanman/aoc-2024/day3"
 )
 
 func main() {
@@ -24,6 +25,8 @@ func main() {
 		runDay1(input)
 	case "day2":
 		runDay2(input)
+	case "day3":
+		runDay3(input)
 	default:
 		log.Fatalf("invalid day %s", *inputDay)
 	}
@@ -43,5 +46,13 @@ func runDay2(input string) {
 	fmt.Printf("Part 1: %d\n", p1)
 
 	p2 := day2.GetSafeCount(input, true)
+	fmt.Printf("Part 2: %d\n", p2)
+}
+
+func runDay3(input string) {
+	p1 := day3.ParseAndMult(input, false)
+	fmt.Printf("Part 1: %d\n", p1)
+
+	p2 := day3.ParseAndMult(input, true)
 	fmt.Printf("Part 2: %d\n", p2)
 }

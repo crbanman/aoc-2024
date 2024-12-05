@@ -1,7 +1,6 @@
 package day2
 
 import (
-	"log"
 	"testing"
 )
 
@@ -19,13 +18,13 @@ const input = `
 func TestGetSafeCountNoDampener(t *testing.T) {
 	result := GetSafeCount(input, false)
 	if result != 2 {
-		log.Fatalf("invalid safe count without dampener. expected %d, received %d", 2, result)
+		t.Fatalf("invalid safe count without dampener. expected %d, received %d", 2, result)
 	}
 }
 
 func TestGetSafeCountWithDampener(t *testing.T) {
 	result := GetSafeCount(input, true)
 	if result != 6 {
-		log.Fatalf("invalid safe count with dampener. expected %d, received %d", 6, result)
+		t.Fatalf("invalid safe count with dampener. expected %d, received %d", 6, result)
 	}
 }
