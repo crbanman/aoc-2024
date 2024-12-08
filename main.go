@@ -10,6 +10,7 @@ import (
 	"github.com/crbanman/aoc-2024/day2"
 	"github.com/crbanman/aoc-2024/day3"
 	"github.com/crbanman/aoc-2024/day4"
+	"github.com/crbanman/aoc-2024/day5"
 )
 
 func main() {
@@ -30,6 +31,8 @@ func main() {
 		runDay3(input)
 	case "day4":
 		runDay4(input)
+	case "day5":
+		runDay5(input)
 	default:
 		log.Fatalf("invalid day %s", *inputDay)
 	}
@@ -65,5 +68,13 @@ func runDay4(input string) {
 	fmt.Printf("Part 1: %d\n", p1)
 
 	p2 := day4.SearchMasX(input)
+	fmt.Printf("Part 2: %d\n", p2)
+}
+
+func runDay5(input string) {
+	p1 := day5.GetMiddlePageNumberSum(input, false)
+	fmt.Printf("Part 1: %d\n", p1)
+
+	p2 := day5.GetMiddlePageNumberSum(input, true)
 	fmt.Printf("Part 2: %d\n", p2)
 }
